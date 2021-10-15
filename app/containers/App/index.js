@@ -160,8 +160,8 @@ export class App extends Component {
     return (
       <div className={styles.app}>
         <Helmet
-          titleTemplate="%s - DBus Keeper"
-          defaultTitle="DBus Keeper"
+          titleTemplate="数据治理平台-数据总线系统"
+          defaultTitle="数据治理平台-数据总线系统"
           meta={[
             {
               name: 'description',

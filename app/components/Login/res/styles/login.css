@@ -1,0 +1,47 @@
+.loginPanel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  width: 380px;
+  padding: 40px;
+  box-shadow: 0 0 11px 8px rgba(0, 0, 0, 0.3);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.loginPanel input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #666 inset !important;
+  -webkit-text-fill-color: #fff !important;
+}
+.loginPanel .loginTitle {
+  color: #fff;
+  padding-bottom: 20px;
+  font-size: 24px;
+  text-shadow: 2px 2px 4px black;
+  text-align: center;
+}
+.loginPanel .antInput {
+  height: 40px;
+  line-height: 40px;
+  width: 100%;
+  border: none;
+  color: white;
+}
+.loginPanel .antFormItem {
+  margin-bottom: 8px;
+}
+.loginPanel .antBtn {
+  height: 35px;
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  font-size: 15px;
+  border-radius: 2px;
+}
+.loginPanel input {
+  font-size: 16px;
+}
+.loginPanel a {
+  color: white;
+  font-size: 14px;
+}

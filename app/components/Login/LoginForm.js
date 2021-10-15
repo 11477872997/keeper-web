@@ -19,7 +19,9 @@ export default class LoginForm extends Component {
    * 登录
    */
   doLogin = () => {
+   
     const {loginApi} = this.props
+  
     // this.props.onGetList({a: 1111})
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
@@ -55,7 +57,7 @@ export default class LoginForm extends Component {
     const { getFieldDecorator } = this.props.form
     return (
       <div className={styles.loginPanel}>
-        <h2 className={styles.loginTitle}>DBus</h2>
+        <h2 className={styles.loginTitle}>数据治理平台-数据总线系统</h2>
         <Form
           className="form-login"
           onKeyUp={e => {

@@ -40,6 +40,7 @@ module.exports = (options) => ({
             'css-loader',
             `less-loader?{"sourceMap":true,"modifyVars": ${JSON.stringify(overrideLessVariables)}}`
           ]
+         
         }, {
           test: /\.less$/,
           exclude: /node_modules/,

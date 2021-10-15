@@ -3,6 +3,8 @@ import { Base64 } from 'js-base64'
 
 const TOKEN_STORAGE = window.localStorage.getItem('TOKEN')
 
+// console.log(process.env.NODE_ENV)
+
 axios.defaults.validateStatus = function (status) {
   return status < 500
 }
