@@ -49,7 +49,8 @@
 .react-contextmenu-item.react-contextmenu-item--disabled:hover {
     background-color: transparent;
     border-color: rgba(0,0,0,.15);
-    color: #878a8c;
+    /* color: #878a8c; */
+    color: #000;
 }
 
 .react-contextmenu-item--divider {

@@ -20,7 +20,7 @@ const addDevMiddlewares = (app, webpackConfig) => {
 
   app.use(['/keeper'], proxy({target: 'http://192.168.73.186:18087/', changeOrigin: true}))
   app.use(proxy('/keeper-webSocket',{
-    target: 'http://localhost:8902',
+    target: 'http://192.168.73.186:18087/',
     changeOrigin: true,
     ws: true,
     pathRewrite: {

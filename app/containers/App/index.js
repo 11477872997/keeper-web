@@ -190,11 +190,12 @@ export class App extends Component {
             {!siderHidden &&
             !!navSource && (
             <Sider
+              
               collapsible
               className={styles.slider}
               collapsed={navCollapsed}
               onCollapse={this.handleCollapse}
-              width={130}
+              width={178}
               collapsedWidth={50}
               trigger={
                 <Icon type={navCollapsed ? 'menu-unfold' : 'menu-fold'} />

@@ -2,7 +2,7 @@
 
 .header {
   height: 50px;
-  background:@layout-topbar-color;
+  background: linear-gradient(to bottom right,@bg-bule,@bg-dark-blue );
   color:@layout-bar-text-color;
   display: flex;
   flex-direction: row;
@@ -13,11 +13,13 @@
     h2 {
       color:@layout-bar-text-color;
       //text-align: center;
-      padding-left: 8px;
+      padding-left: 5px;
+      font-size: 12px;
       font-weight: bold;
       line-height: 32px;
       white-space: nowrap;
       overflow: hidden;
+      margin-right: 5px;
     }
   }
   .left {
@@ -56,10 +58,12 @@
         font-size: 18px;
       }
       &:hover {
-        background-color: lighten(@layout-topbar-color, 10%);
+        background-color: @blue;
       }
       &.active{
-        background-color: #00deff;
+        // background-color: #00deff;
+        background-color: #00a7c7;
+        // background-color: #3dbd7d;
       }
     }
   }

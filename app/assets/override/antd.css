@@ -9,7 +9,7 @@ input:-webkit-autofill {
 }
 /*sider Menu*/
 .DBus-menu .ant-menu-item .anticon + span {
-  color: #fff;
+  color: #000;
 }
 .DBus-menu.ant-menu-inline-collapsed {
   width: auto;
@@ -26,6 +26,19 @@ input:-webkit-autofill {
 
 .ant-layout-sider-trigger{
   position: absolute;
+  background:#fff;
+  color: #000;
+}
+.ant-menu-dark{
+  background:#fff;
+}
+.ant-menu-dark .ant-menu-item, .ant-menu-dark .ant-menu-item-group-title, .ant-menu-dark .ant-menu-item > a{
+  color: #000;
+}
+.ant-menu-dark .ant-menu-item:hover, .ant-menu-dark .ant-menu-item-group-title:hover, .ant-menu-dark .ant-menu-item:hover > a{
+  color: #000;
+  border-right: 3px solid #324b8a;
+  background: linear-gradient(to bottom right, #30cfd0, #316b9b);
 }
 /*footer*/
 .ant-layout-footer{
@@ -262,7 +275,9 @@ div.ant-table-body > table > thead.ant-table-thead > tr > th > span {
 }
 
 div.ant-layout.ant-layout-has-sider > div.ant-layout-sider.ant-layout-sider-has-trigger > div.ant-layout-sider-children > div > ul > li.ant-menu-item-selected.ant-menu-item {
-  background-color: #00a7c7;
+  border-right: 3px solid #324b8a;
+  background: linear-gradient(to bottom right, #30cfd0, #316b9b);
+  /* background-color: #3dbd7d; */
 }
 
 /*全屏弹窗*/

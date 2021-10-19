@@ -12,7 +12,7 @@ export function Navigator (props) {
   const menuItems =
     props.menu &&
     props.menu.map(m => (
-      <MenuItem key={m.name}>
+      <MenuItem key={m.name} >
         <Icon type={m.icon} />
         <span><FormattedMessage id={m.id} defaultMessage={m.text} /></span>
       </MenuItem>

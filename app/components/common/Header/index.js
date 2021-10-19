@@ -23,8 +23,8 @@ export function Header (props) {
       <div className={styles.left}>
         <div className={styles.logo} style={props.navCollapsed ? {} : logoStyle}>
           <h2>
-            <img style={{verticalAlign: 'middle'}} height={36} width={36} src={logo}/>
-            {props.navCollapsed ? "" : "dbus"}
+            <img style={{verticalAlign: 'middle'}} height={20} width={20} src={logo}/>
+            {props.navCollapsed ? "" : "数据治理平台-数据总线系统"}
           </h2>
         </div>
         <ul>
