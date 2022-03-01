@@ -31,9 +31,11 @@ export default class AddDataSource extends Component {
       isLogDsType: false,
       isDeployCanal: true,
       isDeployOgg: true,
+      isDeployDebezium:true,
 
       oggHostList: [],
       canalHostList: [],
+      debeziumHostList: [],
       loading: false
     }
   }
@@ -53,6 +55,14 @@ export default class AddDataSource extends Component {
       isDeployCanal: e.target.checked
     })
   }
+
+  handleDeployDebeziumChange = e => {
+    this.handleDsTypeChange('postgreSql')
+    this.setState({
+      isDeployDebezium: e.target.checked
+    })
+  }
+
 
   handleDeployOggChange = e => {
     this.handleDsTypeChange('oracle')
@@ -130,6 +140,12 @@ export default class AddDataSource extends Component {
             ? message.error(error.response.data.message)
             : message.error(error.message)
         })
+    }else if(value === 'postgreSQL'){
+      Request(sdf,{
+        params: {
+
+        }
+      })
     }
   }
 
@@ -162,12 +178,15 @@ export default class AddDataSource extends Component {
            * 或者选择了mysql且部署canal
            * 才能自动部署
            */
-          const {isDeployCanal, isDeployOgg} = this.state
+          const {isDeployCanal, isDeployOgg,isDeployDebezium} = this.state
           if (values.dsType === 'mysql' && isDeployCanal) {
             this.handleSetOggOrCanal(values)
           } else if (values.dsType === 'oracle' && isDeployOgg) {
             this.handleSetOggOrCanal(values)
-          } else {
+          } else if (values.dsType === 'postgreSQL' && isDeployDebezium){
+            this.handleSetDebezium(values)
+          }
+          else {
             this.handleInsert(values)
           }
         } else {
@@ -229,7 +248,15 @@ export default class AddDataSource extends Component {
       this.handleInsert(values)
     }
   }
+  handleSetDebezium = values => {
+    if (values.type === 'postgreSQL'){
+      let data,api
+      data = {
 
+      }
+      api = DATA_SOURCE_SET_CANAL_CONF_API
+    }
+  }
   // 插入管理库
   handleInsert = values => {
     const {addDataSourceApi} = this.props
@@ -304,9 +331,9 @@ export default class AddDataSource extends Component {
         message: 'mysql数据源名称最多包含1个下划线'
       }
     ]
-    const {isDeployCanal, isDeployOgg} = this.state
+    const {isDeployCanal, isDeployOgg,isDeployDebezium} = this.state
 
-    const {oggHostList, canalHostList} = this.state
+    const {oggHostList, canalHostList,debeziumHostList} = this.state
     return (
       <div>
         <Form autoComplete="off" className='data-source-start-topo-form'>
@@ -332,7 +359,7 @@ export default class AddDataSource extends Component {
               <Select
                 showSearch
                 optionFilterProp='children'
-                placeholder="数据源类型"
+                placeholder="数据源类型============="
                 style={{width: '100%'}}
                 onChange={this.handleDsTypeChange}
               >
@@ -342,9 +369,16 @@ export default class AddDataSource extends Component {
                 <Option key="mysql" value="mysql"><Icon
                   style={{color: 'blue', verticalAlign: 'middle', height: IMAGE_SIZE, width: IMAGE_SIZE}}
                   type="database"/> mysql</Option>
+
+                {/*添加pgsql选项*/}
+                <Option key="postgreSQL" value="postgreSQL"><Icon
+                  style={{color: 'black', verticalAlign: 'middle', height: IMAGE_SIZE, width: IMAGE_SIZE}}
+                  type="database"/> postgreSQL</Option>
+
                 <Option key="mongo" value="mongo"><Icon
                   style={{color: 'green', verticalAlign: 'middle', height: IMAGE_SIZE, width: IMAGE_SIZE}}
                   type="database"/> mongo</Option>
+
                 <Option key="db2" value="db2"><img {...imageProps} height={IMAGE_SIZE} width={IMAGE_SIZE}
                                                    src={DB2}/> db2</Option>
                 <Option key="log_logstash" value="log_logstash"><img {...imageProps} height={IMAGE_SIZE}
@@ -700,6 +734,29 @@ export default class AddDataSource extends Component {
             </FormItem>)}
           {fieldsValue.dsType === 'mysql' && isDeployCanal && (
             <FormItem label='Canal部署小工具目录' {...formItemLayout}>
+              {getFieldDecorator('canalPath', {
+                initialValue: null,
+                rules: [
+                  {
+                    required: true,
+                    message: '不能为空'
+                  }
+                ]
+              })(
+                <Input placeholder="Canal Tool Path" size="large" type="text"/>
+              )}
+            </FormItem>)}
+          {/* oracle ogg 表单 */}
+          {fieldsValue.dsType === 'postgreSQL' && (
+            <FormItem label='是否部署Ogg' {...formItemLayout}>
+              <Checkbox
+                checked={isDeployDebezium}
+                onChange={this.handleDeployDebeziumChange()}
+              />
+            </FormItem>)}
+
+          {fieldsValue.dsType === 'postgreSQL' && isDeployDebezium && (
+            <FormItem label='' {...formItemLayout}>
               {getFieldDecorator('canalPath', {
                 initialValue: null,
                 rules: [

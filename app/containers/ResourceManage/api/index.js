@@ -75,6 +75,11 @@ export const DATA_SOURCE_SET_OGG_CONF_API = '/keeper/autoDeploy/setOggConf'
 export const DATA_SOURCE_GET_CANAL_CONF_API = '/keeper/autoDeploy/getCanalConf'
 // 设置canal配置
 export const DATA_SOURCE_SET_CANAL_CONF_API = '/keeper/autoDeploy/setCanalConf'
+// 设置debezium配置
+export const DATA_SOURCE_SET_DEBEZIUM_CONF_API = '/keeper/autoDeploy/setDebeziumConf'
+// 获取debezium配置
+export const DATA_SOURCE_GET_DEBEZIUM_CONF_API = '/keeper/autoDeploy/getDebeziumConf'
+
 // 自动部署canal ogg
 export const DATA_SOURCE_AUTO_ADD_OGG_CANAL_LINE_API = '/keeper/data-source/autoAddOggCanalLine'
 // 初始化canalFilter
